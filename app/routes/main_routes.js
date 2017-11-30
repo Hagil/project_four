@@ -1,4 +1,5 @@
 var router = require('express').Router();
+var RECIPECLASS = require('../../mongodb/mongoose_connection');
 module.exports = router;
 
 router.get('/', do_homepage);
