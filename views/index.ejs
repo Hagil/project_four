@@ -5,83 +5,22 @@
     <% include ../public/partials/head %>
 </head>
 
-<body ng-app="recipes">
-    <nav class="navbar"> HOME RECIPES SURVEY ABOUT</nav>
+<body>
     <div class="container">
-        <h1>Project Four: Soojee's Delicious Recipes</h1>
-    </div>
-    <!-- <div ng-view></div> -->
 
-    <!-- <div ng-controller="data">
-        <p>No. of recipes: {{recipes.length}}</p>
-        <h4>{{message}}</h4>
-        <h2>CREATE</h2>
-        <form name="userForm" ng-submit="submitForm(userForm.$valid" novalidate>
-            <div>
-                <label>Number</label>
-        </form>
-        </div> -->
+        <div class="jumbotron text-center">
+            <h1>
+                <span class="fa fa-lock"> </span> Project Four: Soojee's Recipes</h1>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <td>
-                    Number
-                </td>
-                <td>Korean Name</td>
-                <td>
-                    English Name
-                </td>
-            <td>Description</td>
-            <td>Ingredients</td>
-            <td>Prep Time</td>
-            <td>Cooking Time</td>
-            <td>Instructions</td>
-            <td>Difficulty</td>
-            </tr>
-        </thead>
-        <tbody>
-            <tr class="success">
-                <td>
-                    1
-                </td>
-                <td>떡볶이</td>
-                <td>Tteokbokki</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr class="info">
-                <td>2</td>
-                <td>깻잎</td>
-                <td>Kkaennip Kimchi</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr class="warning">
-                    <td>3</td>
-                    <td>잡채</td>
-                    <td>Japchae</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-            </tr>
-        </tbody>
-    </table>
+            <p>Login or Register with:</p>
 
+            <a href="/mom_login" class="btn btn-default">
+                <span class="fa fa-user"></span> Soojee Login</a>
+            <a href="/mom_signup" class="btn btn-default">
+                <span class="fa fa-user"></span> Soojee Signup</a>
 
-
-
+        </div>
+        <div class="guest"><a href="/guest_login">Not Soojee? Sign In Here</a></div>
 </body>
 
 </html>

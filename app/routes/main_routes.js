@@ -52,21 +52,22 @@ function do_create(req, res) {
         cooking_time: req.body.cooking_time ,
         instructions: req.body.instructions
         }
-    };
-    var patient = new PATIENTCLASS(data);
-    patient.save().then(function (result){
+   
+    var recipe = new RECIPECLASS(data);
+    recipe.save().then(function (result){
         console.log(result);
         res.json({message: 'backend created!'});
     });
 }
 
+
 function do_update(req, res) {
-    console.log('updating record');
+    console.log('updating recipe');
     console.log(req.body);
     var update = {
         $set: req.body
     }
-    PATIENTCLASS
+    RECIPECLASS
         .findByIdAndUpdate(req.body._id, update)
         .then(function (result){
             console.log(result);
@@ -75,9 +76,9 @@ function do_update(req, res) {
 }
 
 function do_delete(req, res) {
-    console.log('deleting record');
+    console.log('deleting recipe');
     console.log(req.params);
-    PATIENTCLASS.findByIdAndRemove(req.params._id).then(function (result){
+    RECIPECLASS.findByIdAndRemove(req.params._id).then(function (result){
         console.log(result);
         res.json({message: 'backend deleted!'});
     });

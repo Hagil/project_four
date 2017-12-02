@@ -10,7 +10,6 @@ var recipe_structure = {
     ingredients: String,
     preparation_time: Number,
     cooking_time: Number,
-    difficulty: Number,
     instructions: String
 }
 
