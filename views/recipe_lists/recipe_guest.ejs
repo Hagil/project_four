@@ -2,26 +2,15 @@
 <html lang="en">
 
 <head>
-        <% include ../partials/head.ejs %>
+    <% include ../partials/head.ejs %>
         <% include ../partials/nav.ejs %>
-    </head>
+</head>
 
 <body ng-app="recipes">
     <div class="container">
-
         <h1>Project Four: Soojee's Delicious Recipes</h1>
     </div>
-    <!-- <div ng-view></div> -->
-
-    <!-- <div ng-controller="data">
-        <p>No. of recipes: {{recipes.length}}</p>
-        <h4>{{message}}</h4>
-        <h2>CREATE</h2>
-        <form name="userForm" ng-submit="submitForm(userForm.$valid" novalidate>
-            <div>
-                <label>Number</label>
-        </form>
-        </div> -->
+    <!-- <img src="images/bibimbap.jpg" alt="bibimbap"> -->
 
     <table class="table">
         <thead>
@@ -33,12 +22,12 @@
                 <td>
                     English Name
                 </td>
-            <td>Description</td>
-            <td>Ingredients</td>
-            <td>Prep Time</td>
-            <td>Cooking Time</td>
-            <td>Instructions</td>
-            <td>Difficulty</td>
+                <td>Description</td>
+                <td>Ingredients</td>
+                <td>Prep Time</td>
+                <td>Cooking Time</td>
+                <td>Instructions</td>
+                <td>Difficulty</td>
             </tr>
         </thead>
         <tbody>
@@ -67,15 +56,15 @@
                 <td></td>
             </tr>
             <tr class="warning">
-                    <td>3</td>
-                    <td>잡채</td>
-                    <td>Japchae</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                <td>3</td>
+                <td>잡채</td>
+                <td>Japchae</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
             </tr>
         </tbody>
     </table>
@@ -83,7 +72,7 @@
 
 
     <% include ../partials/footer.ejs %>
-    
+
 </body>
 
 </html>

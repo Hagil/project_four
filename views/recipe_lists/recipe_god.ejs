@@ -5,6 +5,19 @@
         
 </head>
 <body>
+
+        <div ng-view></div>
+        
+            <div ng-controller="data">
+                <p>No. of recipes: {{recipes.length}}</p>
+                <h4>{{message}}</h4>
+                <h2>CREATE</h2>
+                <form name="userForm" ng-submit="submitForm(userForm.$valid" novalidate>
+                    <div>
+                        <label>Number</label>
+                </form>
+                </div>
+                
         <form ng-controller="single_recipe"> 
                 <p>
                     <input type="text" ng-model="recipe.number">
