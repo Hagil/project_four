@@ -13,7 +13,7 @@ function local_routes(app, passport) {
         // process the login form
         app.post('/login', passport.authenticate('local-login', {
             successRedirect: '/profile', // redirect to the secure profile section
-            failureRedirect: '/login', // redirect back to the signup page if there is an error
+            failureRedirect: '/mom_login', // redirect back to the login page if there is an error
             failureFlash: true // allow flash messages
         }));
     
@@ -28,9 +28,9 @@ function local_routes(app, passport) {
         });
     
         // process the signup form
-        app.post('/signup', passport.authenticate('local-signup', {
-            successRedirect: '/profile',
-            failureRedirect: '/signup',
+        app.post('/signup', passport.authenticate('mom_signup', {
+            successRedirect: '/recipe_god',
+            failureRedirect: '/mom_signup',
             failureFlash: true
         }));
     

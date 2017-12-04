@@ -1,6 +1,6 @@
 var express = require('express');
 var backend_app = express();
-var routes = require('/app/routes/main_routes');
+var routes = require('./app/routes/main_routes');
 var bodyParser = require('body-parser');
 var port = 3500;
 

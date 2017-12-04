@@ -5,9 +5,9 @@
       "english_name": "Tteokbokki",
       "description": "Spicy rice cake",
       "ingredients": "Soup base (5 large dried anchovies boiled in 350-450ml water, boil 10 mins)", 
-      "preparation_time": "",
-      "cooking_time": "",
-      "instructions": ""
+      "preparation_time": "30",
+      "cooking_time": "20",
+      "instructions": "data to be added by Soojee"
     },
     {
       "number": 2,
@@ -15,19 +15,19 @@
       "english_name": "Kkaennip Kimchi",
       "description": "Perilla leaf kimchi",
       "ingredients": "Perilla Leaves, Onion, Red Korean Pepper, Water (1 cup), Soysauce, Black Pepper, Sesame Oil, Chilli Powder, Sugar, Sesame Seed",
-      "preparation_time": "",
-      "cooking_time": "",
-      "instructions": ""
+      "preparation_time": "10",
+      "cooking_time": "10",
+      "instructions": "data to be added by Soojee"
     },
     {
       "number": 3,
       "korean_name": "잡채",
       "english_name": "Japchae",
       "description": "Fried glass noodles ",
-      "ingredients": "",
-      "preparation_time": "",
-      "cooking_time": "",
-      "instructions": ""
+      "ingredients": "data to be added by Soojee",
+      "preparation_time": "20",
+      "cooking_time": "30",
+      "instructions": "data to be added by Soojee"
     },
     {
       "number": 4,
@@ -35,9 +35,9 @@
       "english_name": "Samgaetang",
       "description": "Ginseng Chicken Soup",
       "ingredients": "Small Grass Fed Chicken (6), Chestnut, Red Dates, Glutinous Rice (1.5 to 2 cups), Ginseng, Garlic, Black Pepper, Salt",
-      "preparation_time": "",
-      "cooking_time": "",
-      "instructions": ""
+      "preparation_time": "30",
+      "cooking_time": "50",
+      "instructions": "data to be added by Soojee"
     },
     {
       "number": 5,
@@ -45,9 +45,9 @@
       "english_name": "Oeeji",
       "description": "Spicy pickles",
       "ingredients": "Cucumber (20), Sugar (400g), Salt (400g), Vinegar (360ml), Soju (70ml)",
-      "preparation_time": "",
-      "cooking_time": "",
-      "instructions": ""
+      "preparation_time": "20",
+      "cooking_time": "60",
+      "instructions": "data to be added by Soojee"
     },
     {
       "number": 6,
@@ -57,56 +57,56 @@
       "ingredients": "Fish cake, Onion (1/2), Garlic, Soysauce, Dark soysauce, Chilli, Spring Onion, Sesame Seeds, Pepper, Sugar",
       "preparation_time": "",
       "cooking_time": "",
-      "instructions": ""
+      "instructions": "data to be added by Soojee"
     },
     {
       "number": 7,
       "korean_name": "김밥",
       "english_name": "Kimbap",
       "description": "Korean style sushi",
-      "ingredients": "",
-      "preparation_time": "",
-      "cooking_time": "",
-      "instructions": ""
+      "ingredients": "data to be added by Soojee",
+      "preparation_time": "30",
+      "cooking_time": "15",
+      "instructions": "data to be added by Soojee"
     },
     {
       "number": 8,
       "korean_name": "김치찌개",
       "english_name": "Kimchi Jjigae",
       "description": "Kimchi stew",
-      "ingredients": "",
-      "preparation_time": "",
-      "cooking_time": "",
-      "instructions": ""
+      "ingredients": "data to be added by Soojee",
+      "preparation_time": "15",
+      "cooking_time": "30",
+      "instructions": "data to be added by Soojee"
     },
     {
       "number": 9,
       "korean_name": "닭도리탕",
       "english_name": "Dakdoritang",
       "description": "Spicy Chicken Stew",
-      "ingredients": "",
-      "preparation_time": "",
-      "cooking_time": "",
-      "instructions": ""
+      "ingredients": "data to be added by Soojee",
+      "preparation_time": "20",
+      "cooking_time": "30",
+      "instructions": "data to be added by Soojee"
     },
     {
       "number": 10,
       "korean_name": "불고기",
       "english_name": "Bulgogi",
       "description": "Marinated sliced beef",
-      "ingredients": "",
-      "preparation_time": "",
-      "cooking_time": "",
-      "instructions": ""
+      "ingredients": "data to be added by Soojee",
+      "preparation_time": "50",
+      "cooking_time": "15",
+      "instructions": "data to be added by Soojee"
     },
     {
       "number": 11,
       "korean_name": "김치",
       "english_name": "Kimchi (Easy)",
       "description": "Simple Kimchi ",
-      "ingredients": "",
-      "preparation_time": "",
-      "cooking_time": "",
-      "instructions": ""
+      "ingredients": "data to be added by Soojee",
+      "preparation_time": "50",
+      "cooking_time": "30",
+      "instructions": "data to be added by Soojee"
     }
    ]
