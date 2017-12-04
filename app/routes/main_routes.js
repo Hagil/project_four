@@ -1,85 +1,123 @@
-var router = require('express').Router();
-var RECIPECLASS = require('../../mongodb/mongoose_connection');
-module.exports = router;
-
-router.get('/', do_homepage);
-
-function do_homepage(req, res){
-    console.log('doing homepage');
-    res.render('index');
-}
-//api
-router.get('/api/v10/read', do_read);
-router.get('/api/v10/read/:_id', do_single_read);
-router.post('/api/v10/create', do_create);
-router.put('/api/v10/update', do_update);
-router.delete('/api/v10/delete/:_id', do_delete);
-
-function do_read(req, res) {
-    console.log('getting all recipes');
-    RECIPECLASS.find({}, {
-            english_name: 1,
-            description: 1
-        })
-        .then(function (results) {
-           // console.log(results);
-            res.json(results);
+module.exports = function (app, passport) {
+    
+        // HOME PAGE (with login links) ========
+        // =====================================
+        app.get('/', function (req, res) {
+            res.render('index.ejs'); // load the index.ejs file
         });
-}
-
-function do_single_read(req, res) {
-    console.log('getting single recipe');
-    console.log(req.params);
-    RECIPECLASS
-        .findById(req.params._id)
-        .then(function (result){
-            console.log(result);
-            res.json(result);
+    
+        var local_routes = require('./local_routes')
+        local_routes(app, passport);
+    
+        var facebook_routes = require('./facebook_routes');
+        facebook_routes(app, passport);
+    
+        var instagram_routes = require('./instagram_routes');
+        instagram_routes(app, passport);
+    
+        var google_routes = require('./google_routes');
+        google_routes(app, passport);
+    
+        var list_routes = require('./list_routes');
+        list_routes(app);
+    
+    
+        // route for logging out
+        app.get('/logout', function (req, res) {
+            req.logout();
+            res.redirect('/');
         });
-}
-
-function do_create(req, res) {
-    console.log('creating recipe');
-    console.log(req.body);
-
-    var data = {
-        number: req.body.number,
-        korean_name: req.body.korean_name,
-        english_name: req.body.english_name,
-        description: req.body.description,
-        ingredients: req.body.ingredients,
-        preparation_time: req.body.preparation_time,
-        cooking_time: req.body.cooking_time ,
-        instructions: req.body.instructions
-        }
-   
-    var recipe = new RECIPECLASS(data);
-    recipe.save().then(function (result){
-        console.log(result);
-        res.json({message: 'backend created!'});
-    });
-}
-
-
-function do_update(req, res) {
-    console.log('updating recipe');
-    console.log(req.body);
-    var update = {
-        $set: req.body
+    
+        // route for to recipe list
+        app.get('/list', function (req, res) {
+            var user = {
+                name: "Soojee's"
+            };
+            res.render('recipe_god.ejs', user);
+        });
+    
+    
+        // // PROFILE SECTION =====================
+        // // we will want this protected so you have to be logged in to visit
+        // // we will use route middleware to verify this (the isLoggedIn function)
+        // app.get('/profile', isLoggedIn, function (req, res) {
+        //     res.render('profile.ejs', {
+        //         user: req.user // get the user out of session and pass to template
+        //     });
+        // });
+    
+    
+        //locally
+        app.get('/connect/local', function (req, res) {
+            res.render('connect_local.ejs', {
+                message: req.flash('loginMessage')
+            });
+        });
+        app.post('/connect/local', passport.authenticate('local-signup', {
+            successRedirect: '/profile', // redirect to the secure profile section
+            failureRedirect: '/connect/local', // redirect back to the signup page if there is an error
+            failureFlash: true // allow flash messages
+        }));
+    
+        // =============================================================================
+        // UNLINK ACCOUNTS =============================================================
+        // =============================================================================
+        // used to unlink accounts. for social accounts, just remove the token
+        // for local account, remove email and password
+        // user account will stay active in case they want to reconnect in the future
+    
+        // local -----------------------------------
+        app.get('/unlink/local', function (req, res) {
+            var user = req.user;
+            user.local.email = undefined;
+            user.local.password = undefined;
+            user.save(function (err) {
+                res.redirect('/profile');
+            });
+        });
+    
+        // facebook -------------------------------
+        app.get('/unlink/facebook', function (req, res) {
+            var user = req.user;
+            user.facebook.token = undefined;
+            user.save(function (err) {
+                res.redirect('/profile');
+            });
+        });
+    
+        // twitter --------------------------------
+        app.get('/unlink/twitter', function (req, res) {
+            var user = req.user;
+            user.twitter.token = undefined;
+            user.save(function (err) {
+                res.redirect('/profile');
+            });
+        });
+    
+        // google ---------------------------------
+        app.get('/unlink/google', function (req, res) {
+            var user = req.user;
+            user.google.token = undefined;
+            user.save(function (err) {
+                res.redirect('/profile');
+            });
+        });
+        app.get('/unlink/instagram', function (req, res) {
+            var user = req.user;
+            user.instagram.token = undefined;
+            user.save(function (err) {
+                res.redirect('/profile');
+            });
+        });
+    };
+    
+    // route middleware to make sure a user is logged in
+    function isLoggedIn(req, res, next) {
+    
+        // if user is authenticated in the session, carry on 
+        if (req.isAuthenticated())
+            return next();
+    
+        // if they aren't redirect them to the home page
+        res.redirect('/');
     }
-    RECIPECLASS
-        .findByIdAndUpdate(req.body._id, update)
-        .then(function (result){
-            console.log(result);
-            res.json({message: 'backend updated!'});
-        });
-}
-
-function do_delete(req, res) {
-    console.log('deleting recipe');
-    console.log(req.params);
-    RECIPECLASS.findByIdAndRemove(req.params._id).then(function (result){
-        console.log(result);
-        res.json({message: 'backend deleted!'});
-    });
-}
