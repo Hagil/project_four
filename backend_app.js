@@ -3,7 +3,9 @@ var mongoose = require('./mongodb/mongoose_connection')
 var backend_app = express();
 var passport = require('passport');
 //var routes = require('./app/routes/main_routes')(backend_app, passport);
-var routes = require('./app/routes/main_routes');
+
+var ejs_routes = require('./app/routes/ejs_routes');
+var api_routes = require('./app/routes/api_routes');
 var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
 var flash = require('connect-flash');
@@ -15,7 +17,9 @@ backend_app.use(express.static('public'));
 backend_app.use(cookieParser()); // read cookies (needed for auth)
 backend_app.use(bodyParser.urlencoded({extended: true}));
 backend_app.use(bodyParser.json());
-backend_app.use(routes);
+backend_app.use(ejs_routes);
+backend_app.use(api_routes);
+
 // backend_app.get('/', function (req, res) {
 //     res.render('index.ejs'); // load the index.ejs file
 // });
