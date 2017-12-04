@@ -1,6 +1,6 @@
  // facebook -------------------------------
  function facebook_routes(app, passport) {
-    
+    console.log('doing fb_routes');
          // send to facebook to do the authentication
          app.get('/connect/facebook', passport.authorize('facebook', {
              scope: 'email'

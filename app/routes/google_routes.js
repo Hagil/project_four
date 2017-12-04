@@ -1,5 +1,7 @@
 // google ---------------------------------
 function google_routes(app, passport) {
+    console.log('doing google_routes');
+    
     // send to google to do the authentication
     app.get('/connect/google', passport.authorize('google', {
         scope: ['profile', 'email']

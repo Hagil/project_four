@@ -1,4 +1,5 @@
 function instagram_routes(app, passport) {
+    console.log('doing instagram_routes');
     
         // send to instagram to do the authentication
         app.get('/connect/instagram', passport.authorize('instagram', {}));

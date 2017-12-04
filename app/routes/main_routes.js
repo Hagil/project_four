@@ -1,5 +1,5 @@
 module.exports = function (app, passport) {
-    
+    console.log('doing main_routes')
         // HOME PAGE (with login links) ========
         // =====================================
         app.get('/', function (req, res) {
@@ -93,6 +93,8 @@ module.exports = function (app, passport) {
                 res.redirect('/profile');
             });
         });
+
+        // instagram ---------------------------------
         app.get('/unlink/instagram', function (req, res) {
             var user = req.user;
             user.instagram.token = undefined;
