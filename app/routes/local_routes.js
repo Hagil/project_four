@@ -11,12 +11,14 @@ function local_routes(app, passport) {
     });
 
     // process the login form
-    app.post('/login', passport.authenticate('local-login', {
-        successRedirect: '/profile', // redirect to the secure profile section
-        failureRedirect: '/mom_login', // redirect back to the login page if there is an error
-        failureFlash: true // allow flash messages
-    }));
-
+    // app.post('/login', passport.authenticate('local-login', {
+    //     successRedirect: '/profile', // redirect to the secure profile section
+    //     failureRedirect: '/mom_login', // redirect back to the login page if there is an error
+    //     failureFlash: true // allow flash messages
+    // }));
+app.post('/mom_login', function(req, res){
+    res.redirect ('/profile');
+})
     // SIGNUP ============================== show the signup form
     app.get('/signup', function (req, res) {
 
@@ -27,11 +29,14 @@ function local_routes(app, passport) {
     });
 
     // process the signup form
-    app.post('/signup', passport.authenticate('mom_signup', {
-        successRedirect: '/recipe_god',
-        failureRedirect: '/mom_signup',
-        failureFlash: true
-    }));
+    // app.post('/signup', passport.authenticate('mom_signup', {
+    //     successRedirect: '/recipe_god',
+    //     failureRedirect: '/mom_signup',
+    //     failureFlash: true
+    // }));
+    app.post ('/signup', function (req, res){
+        res.redirect ('/mom_signup')
+    })
 
 }
 module.exports = local_routes;
