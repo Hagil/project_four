@@ -5,7 +5,36 @@
         
 </head>
 <body>
-    
+        <form ng-controller="single_recipe"> 
+                <p>
+                    <input type="text" ng-model="recipe.number">
+                </p>
+                <p>
+                        <input type="text" ng-model="recipe.korean_name"> 
+                </p>
+                <p>
+                        <input type="text" ng-model="recipe.english_name"> 
+                </p>
+                <p>
+                        <input type="text" ng-model="recipe.description"> 
+                </p>
+                <p>
+                        <input type="text" ng-model="recipe.ingredients"> 
+                </p>
+                <p>
+                        <input type="text" ng-model="recipe.preparation_time"> 
+                </p>
+                <p>
+                        <input type="text" ng-model="recipe.cooking_time"> 
+                </p>
+                <p>
+                        <input type="text" ng-model="recipe.instructions"> 
+                </p>
+                <button ng-click="update(recipe)">UPDATE</button>
+                <button ng-click="delete(recipe)">DELETE</button>
+                
+                <p>{{message}}</p>
+            </form>
 </body>
 <% include ../partials/footer.ejs %>
 
