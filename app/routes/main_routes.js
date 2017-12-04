@@ -18,8 +18,8 @@ module.exports = function (app, passport) {
         var google_routes = require('./google_routes');
         google_routes(app, passport);
     
-        var list_routes = require('./list_routes');
-        list_routes(app);
+        var crud_routes = require('./crud_routes');
+        crud_routes(app);
     
     
         // route for logging out
@@ -40,11 +40,11 @@ module.exports = function (app, passport) {
         // // PROFILE SECTION =====================
         // // we will want this protected so you have to be logged in to visit
         // // we will use route middleware to verify this (the isLoggedIn function)
-        // app.get('/profile', isLoggedIn, function (req, res) {
-        //     res.render('profile.ejs', {
-        //         user: req.user // get the user out of session and pass to template
-        //     });
-        // });
+        app.get('/profile', isLoggedIn, function (req, res) {
+            res.render('profile.ejs', {
+                user: req.user // get the user out of session and pass to template
+            });
+        });
     
     
         //locally
@@ -66,15 +66,15 @@ module.exports = function (app, passport) {
         // for local account, remove email and password
         // user account will stay active in case they want to reconnect in the future
     
-        // local -----------------------------------
-        app.get('/unlink/local', function (req, res) {
-            var user = req.user;
-            user.local.email = undefined;
-            user.local.password = undefined;
-            user.save(function (err) {
-                res.redirect('/profile');
-            });
-        });
+        // // local -----------------------------------
+        // app.get('/unlink/local', function (req, res) {
+        //     var user = req.user;
+        //     user.local.email = undefined;
+        //     user.local.password = undefined;
+        //     user.save(function (err) {
+        //         res.redirect('/profile');
+        //     });
+        // });
     
         // facebook -------------------------------
         app.get('/unlink/facebook', function (req, res) {
@@ -84,16 +84,7 @@ module.exports = function (app, passport) {
                 res.redirect('/profile');
             });
         });
-    
-        // twitter --------------------------------
-        app.get('/unlink/twitter', function (req, res) {
-            var user = req.user;
-            user.twitter.token = undefined;
-            user.save(function (err) {
-                res.redirect('/profile');
-            });
-        });
-    
+
         // google ---------------------------------
         app.get('/unlink/google', function (req, res) {
             var user = req.user;
