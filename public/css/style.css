@@ -1,0 +1,10 @@
+
+.footer{
+    position:fixed;
+    bottom:0;
+    left:50%;
+    margin-left:-200px; /*negative half the width */
+    background:red;
+    width:400px;
+    height:100px;
+}
