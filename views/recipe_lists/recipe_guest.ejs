@@ -70,6 +70,8 @@
     </table> -->
 
     <h2>READ</h2>
+    <div ng-controller="data">
+            
     <table class="table table-bordered">
         <thead>
             <tr>
@@ -141,29 +143,31 @@
                 <th>DELETE</th>
             </tr>
         </thead>
-        <tbody ng-repeat="recipes in recipes | orderBy:sortType:sortReverse | filter:searchRecipe">
+        <tbody ng-repeat="recipe in recipes | orderBy:sortType:sortReverse | filter:searchRecipe">
             <tr ng-class="">
                 <td>{{recipe.number}}</td>
                 <td>
-                    <input type="text" ng-model="recipes.korean_name">
+                    <input type="text" ng-model="recipe.korean_name">
                 </td>
                 <td>
-                        <input type="text" ng-model="recipes.english_name">
+                        <input type="text" ng-model="recipe.english_name">
                 </td>
                 <td>
-                    <input type="text" ng-model="recipes.description">
+                    <input type="text" ng-model="recipe.description">
                 </td>
                 <td>
-                    <input type="text" ng-model="recipes.ingredients">
+                        <a href="#!/recipe/{{recipe._id}}">{{recipe.ingredients}}
+                            
+                    <!-- <input type="text" ng-model="recipe.ingredients"> -->
                 </td>
                 <td>
-                    <input type="text" ng-model="recipes.preparation_time">
+                    <input type="text" ng-model="recipe.preparation_time">
                 </td>
                 <td>
-                    <input type="text" ng-model="recipes.cooking_time">
+                    <input type="text" ng-model="recipe.cooking_time">
                 </td>
                 <td>
-                        <input type="text" ng-model="recipes.instructions">
+                        <input type="text" ng-model="recipe.instructions">
                     </td>
                 <td>
                     <!-- <span ng-if="recipe.party == 'Democratic'">
@@ -184,7 +188,7 @@
         </tbody>
 
     </table>
-
+</div>
 
     <% include ../partials/footer.ejs %>
 
