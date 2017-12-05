@@ -14,3 +14,7 @@ footer{
 #background {
 background: url("../images/kimchi.jpg") no-repeat fixed center;
 }
+
+.stars{
+    height: 2em;
+}
