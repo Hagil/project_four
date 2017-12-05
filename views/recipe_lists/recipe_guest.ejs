@@ -10,68 +10,10 @@
     <div class="container">
         <h1>Project Four: Soojee's Delicious Recipes</h1>
     </div>
-    <!-- <img src="images/bibimbap.jpg" alt="bibimbap"> -->
-
-    <!-- <table class="table">
-        <thead>
-            <tr>
-                <td>
-                    Number
-                </td>
-                <td>Korean Name</td>
-                <td>
-                    English Name
-                </td>
-                <td>Description</td>
-                <td>Ingredients</td>
-                <td>Prep Time</td>
-                <td>Cooking Time</td>
-                <td>Instructions</td>
-                <td>Difficulty</td>
-            </tr>
-        </thead>
-        <tbody>
-            <tr class="success">
-                <td>
-                    1
-                </td>
-                <td>떡볶이</td>
-                <td>Tteokbokki</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr class="info">
-                <td>2</td>
-                <td>깻잎</td>
-                <td>Kkaennip Kimchi</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr class="warning">
-                <td>3</td>
-                <td>잡채</td>
-                <td>Japchae</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-        </tbody>
-    </table> -->
 
     <h2>READ</h2>
     <div ng-controller="data">
-            
+            <div id="background">
     <table class="table table-bordered">
         <thead>
             <tr>
@@ -156,9 +98,8 @@
                     <input type="text" ng-model="recipe.description">
                 </td>
                 <td>
-                        <a href="#!/recipe/{{recipe._id}}">{{recipe.ingredients}}
                             
-                    <!-- <input type="text" ng-model="recipe.ingredients"> -->
+                    <input type="text" ng-model="recipe.ingredients">
                 </td>
                 <td>
                     <input type="text" ng-model="recipe.preparation_time">
@@ -170,12 +111,21 @@
                         <input type="text" ng-model="recipe.instructions">
                     </td>
                 <td>
-                    <!-- <span ng-if="recipe.party == 'Democratic'">
-                        <img src="images/democrat.png" alt="">
+                    <!-- <span ng-if="recipe.cooking_time == 'Democratic'">
+                        <img src="images/1-star-rating.png" alt="">
                     </span>
-                    <span ng-if="recipe.party == 'Republican'">
-                        <img src="images/republican.png" alt="">
-                    </span> -->
+                    <span ng-if="recipe.cooking_time  == 'Republican'">
+                        <img src="images/2-star-rating.png" alt="">
+                    </span> 
+                 <span ng-if="recipe.cooking_time  == 'Republican'">
+                        <img src="images/3-star-rating.png" alt="">
+                    </span>
+                 <span ng-if="recipe.cooking_time  == 'Republican'">
+                        <img src="images/4-star-rating.png" alt="">
+                    </span>
+                 <span ng-if="recipe.cooking_time  == 'Republican'">
+                        <img src="images/5-star-rating.png" alt="">
+                    </span>-->
                 </td>
                 <td>
                     <button class="btn btn-success" ng-click="update(recipe)">update</button>
@@ -188,6 +138,7 @@
         </tbody>
 
     </table>
+</div>
 </div>
 
     <% include ../partials/footer.ejs %>

@@ -12,11 +12,17 @@ router.delete('/api/v10/delete/:_id', do_delete);
 function do_read(req, res) {
     console.log('getting all recipes');
     RECIPECLASS.find({}, {
+            number: 1,
+            korean_name: 1,
             english_name: 1,
-            description: 1
+            description: 1,
+            ingredients: 1,
+            preparation_time: 1,
+            cooking_time: 1,
+            instructions: 1
         })
         .then(function (results) {
-           // console.log(results);
+            // console.log(results);
             res.json(results);
         });
 }
@@ -26,7 +32,7 @@ function do_single_read(req, res) {
     console.log(req.params);
     RECIPECLASS
         .findById(req.params._id)
-        .then(function (result){
+        .then(function (result) {
             console.log(result);
             res.json(result);
         });
@@ -43,17 +49,18 @@ function do_create(req, res) {
         description: req.body.description,
         ingredients: req.body.ingredients,
         preparation_time: req.body.preparation_time,
-        cooking_time: req.body.cooking_time ,
+        cooking_time: req.body.cooking_time,
         instructions: req.body.instructions
-        }
-   
-    var recipe = new RECIPECLASS(data);
-    recipe.save().then(function (result){
-        console.log(result);
-        res.json({message: 'backend created!'});
-    });
-}
+    }
 
+    var recipe = new RECIPECLASS(data);
+    recipe
+        .save()
+        .then(function (result) {
+            console.log(result);
+            res.json({message: 'backend created!'});
+        });
+}
 
 function do_update(req, res) {
     console.log('updating recipe');
@@ -63,7 +70,7 @@ function do_update(req, res) {
     }
     RECIPECLASS
         .findByIdAndUpdate(req.body._id, update)
-        .then(function (result){
+        .then(function (result) {
             console.log(result);
             res.json({message: 'backend updated!'});
         });
@@ -72,9 +79,10 @@ function do_update(req, res) {
 function do_delete(req, res) {
     console.log('deleting recipe');
     console.log(req.params);
-    RECIPECLASS.findByIdAndRemove(req.params._id).then(function (result){
-        console.log(result);
-        res.json({message: 'backend deleted!'});
-    });
+    RECIPECLASS
+        .findByIdAndRemove(req.params._id)
+        .then(function (result) {
+            console.log(result);
+            res.json({message: 'backend deleted!'});
+        });
 }
-
