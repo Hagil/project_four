@@ -15,6 +15,11 @@ function do_data($scope, $http) {
     }
     $scope.read();
 
+    // $scope.recipeFilter = function () {
+    //     console.log('filtering recipes');
+    //     $htt
+    // }
+
     $scope.create = function () {
         console.log('creating recipe');
         var data = {
@@ -23,10 +28,13 @@ function do_data($scope, $http) {
             english_name: $scope.input_english_name,
             description: $scope.input_description,
             ingredients: $scope.input_ingredients,
-            preparation_time: $scope.input_prepartion_time,
+            preparation_time: $scope.input_preparation_time,
             cooking_time: $scope.input_cooking_time,
             instructions: $scope.input_instructions
         }
+        console.log('data to be written')
+        console.log(data);
+
         $http.post('/api/v10/create', data)
             .then(function (result) {
                 console.log(result);
@@ -54,9 +62,9 @@ function do_data($scope, $http) {
     }
     $scope.dropdown = function () {
         console.log('getting recipes');
-        $http.get('/api/v10/recipedropdown').then(function (party) {
-            console.log(recipe);
-            $scope.recipe = recipe.data;
+        $http.get('/api/v10/recipedropdown').then(function (english_name) {
+            $scope.english_names = english_name.data;
+            console.log($scope.english_names);
         });
     }
     $scope.dropdown();

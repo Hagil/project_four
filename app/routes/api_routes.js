@@ -53,6 +53,7 @@ function do_create(req, res) {
         instructions: req.body.instructions
     }
 
+
     var recipe = new RECIPECLASS(data);
     recipe
         .save()
@@ -85,4 +86,14 @@ function do_delete(req, res) {
             console.log(result);
             res.json({message: 'backend deleted!'});
         });
+}
+
+router.get('/api/v10/recipedropdown', recipedropdown);
+
+function recipedropdown(req, res) {
+    console.log('getting unique recipe list');
+    RECIPECLASS.find().distinct('english_name').then(function (english_name) {
+        console.log(english_name);
+        res.json(english_name);
+    })
 }

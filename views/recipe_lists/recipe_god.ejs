@@ -12,187 +12,198 @@
     </div>
 
     <div ng-controller="data">
-            <p>No. of recipes: {{recipes.length}}</p>
-            <h4>{{message}}</h4>
+        <p>No. of recipes: {{recipes.length}}</p>
+        <h4>{{message}}</h4>
 
-            <h2>CREATE</h2>
-            <form name="userForm" ng-submit="submitForm(userForm.$valid)" novalidate>
-               <div> <label>Number</label>
-                <input type="text" placeholder="number" class="form-control" ng-model="input_number"></div>
-    
-                <div class="form-group" ng-class="{ 'has-error' : userForm.recipe.$invalid && !userForm.recipe.$pristine && submitted }">
-                    <label>Recipe Korean Name</label>
-                    <input type="text" placeholder="Korean name" name="recipe" class="form-control" ng-model="input_recipe.korean_name" ng-minlength="2"
-                        required>
-                    <p ng-show="userForm.recipe.$invalid && !userForm.recipe.$pristine" class="help-block">Recipe's Korean name is required.</p>
-                    <p ng-show="userForm.recipe.$error.minlength" class="help-block">Name is too short.</p>
-                </div>
-                <div class="form-group" ng-class="{ 'has-error' : userForm.recipe.$invalid && !userForm.recipe.$pristine && submitted }">
-                        <label>Recipe English Name</label>
-                        <input type="text" placeholder="English name" name="recipe" class="form-control" ng-model="input_recipe.english_name" ng-minlength="5"
-                            required>
-                        <p ng-show="userForm.recipe.$invalid && !userForm.recipe.$pristine" class="help-block">Recipe's English name is required.</p>
-                        <p ng-show="userForm.recipe.$error.minlength" class="help-block">Name is too short.</p>
-                    </div>
-                <div>
-                    <label>Description</label>
-                    <input type="text" placeholder="description" class="form-control" ng-model="input_description">
-                </div>
-                <div>
-                    <label>Ingredients</label>
-                    <input type="text" placeholder="ingredients" class="form-control" ng-model="input_ingedients">
-                </div>
-                <div>
-                    <label>Preparation Time (mins)</label>
-                    <input type="text" placeholder="preparation time" class="form-control" ng-model="input_preparation_time">
-                </div>
-                <div>
-                    <label>Cooking Time (mins)</label>
-                    <input type="text" placeholder="cooking time" class="form-control" ng-model="input_cooking_time">
-                </div>
-                <div>
-                        <label>Instructions</label>
-                        <input type="text" placeholder="instructions" class="form-control" ng-model="input_instructions">
-                    </div>
-    
-                <button class="btn btn-primary" ng-click="create()">create recipe</button>
-    
-                <div>
-                    <label>Search recipes</label>
-                    <input type="text" class="form-control" placeholder="Search recipes" ng-model="searchRecipe">
-                </div>
-    
-            </form>
-        
+        <h2>CREATE</h2>
+        <form name="userForm" ng-submit="submitForm(userForm.$valid)" novalidate>
+            <div>
+                <label>Number</label>
+                <input type="text" placeholder="number" class="form-control" ng-model="input_number">
+            </div>
+
+            <div class="form-group" ng-class="{ 'has-error' : userForm.recipe.$invalid && !userForm.recipe.$pristine && submitted }">
+                <label>Recipe Korean Name</label>
+                <input type="text" placeholder="Korean name" name="recipe" class="form-control" ng-model="input_korean_name" ng-minlength="2"
+                    required>
+                <p ng-show="userForm.recipe.$invalid && !userForm.recipe.$pristine" class="help-block">Recipe's Korean name is required.</p>
+                <p ng-show="userForm.recipe.$error.minlength" class="help-block">Name is too short.</p>
+            </div>
+            <div class="form-group" ng-class="{ 'has-error' : userForm.recipe.$invalid && !userForm.recipe.$pristine && submitted }">
+                <label>Recipe English Name</label>
+                <input type="text" placeholder="English name" name="recipe" class="form-control" ng-model="input_english_name" ng-minlength="5"
+                    required>
+                <p ng-show="userForm.recipe.$invalid && !userForm.recipe.$pristine" class="help-block">Recipe's English name is required.</p>
+                <p ng-show="userForm.recipe.$error.minlength" class="help-block">Name is too short.</p>
+            </div>
+            <div>
+                <label>Description</label>
+                <input type="text" placeholder="description" class="form-control" ng-model="input_description">
+            </div>
+            <div>
+                <label>Ingredients</label>
+                <input type="text" placeholder="ingredients" class="form-control" ng-model="input_ingredients">
+            </div>
+            <div>
+                <label>Preparation Time (mins)</label>
+                <input type="text" placeholder="preparation time" class="form-control" ng-model="input_preparation_time">
+            </div>
+            <div>
+                <label>Cooking Time (mins)</label>
+                <input type="text" placeholder="cooking time" class="form-control" ng-model="input_cooking_time">
+            </div>
+            <div>
+                <label>Instructions</label>
+                <input type="text" placeholder="instructions" class="form-control" ng-model="input_instructions">
+            </div>
+
+            <button class="btn btn-primary" ng-click="create()">create recipe</button>
+
+
+            <div>
+                <label>Recipe Dropdown List</label>
+                <select ng-model="input_english_name" ng-model-options="searchRecipe">
+                    <option value="">Select Recipes</option>
+                    <option ng-repeat="english_name in english_names">{{english_name}}</option>
+                </select>
+            </div>
+
+            <div>
+                <label>Search recipes</label>
+                <input type="text" class="form-control" placeholder="Search recipes" ng-model="searchRecipe">
+            </div>
+
+        </form>
+
 
         <div id="background">
-        <h2>READ</h2>
-    <table class="table table-bordered">
-        <thead>
-            <tr>
-                <td>
-                    <a href="#" ng-click="sortType = 'number'; sortReverse = !sortReverse">
-                        Number
-                        <span ng-show="sortType == 'number' && !sortReverse" class="fa fa-caret-down"></span>
-                        <span ng-show="sortType == 'number' && sortReverse" class="fa fa-caret-up"></span>
-                    </a>
-                </td>
-                <td>
-                    <a href="#" ng-click="sortType = 'korean_name'; sortReverse = !sortReverse">
-                        Korean Name
-                        <span ng-show="sortType == 'korean_name' && !sortReverse" class="fa fa-caret-down"></span>
-                        <span ng-show="sortType == 'korean_name' && sortReverse" class="fa fa-caret-up"></span>
-                    </a>
-                </td>
-                <td>
-                    <a href="#" ng-click="sortType = 'english_name'; sortReverse = !sortReverse">
-                        English Name
-                        <span ng-show="sortType == 'english_name' && !sortReverse" class="fa fa-caret-down"></span>
-                        <span ng-show="sortType == 'english_name' && sortReverse" class="fa fa-caret-up"></span>
-                    </a>
-                </td>
-                <td>
-                    <a href="#" ng-click="sortType = 'description'; sortReverse = !sortReverse">
-                        Description
-                        <span ng-show="sortType == 'description' && !sortReverse" class="fa fa-caret-down"></span>
-                        <span ng-show="sortType == 'description' && sortReverse" class="fa fa-caret-up"></span>
-                    </a>
-                </td>
-                <td>
-                    <a href="#" ng-click="sortType = 'ingredients'; sortReverse = !sortReverse">
-                        Ingredients
-                        <span ng-show="sortType == 'ingredients' && !sortReverse" class="fa fa-caret-down"></span>
-                        <span ng-show="sortType == 'ingredients' && sortReverse" class="fa fa-caret-up"></span>
-                    </a>
-                </td>
-                <td>
-                    <a href="#" ng-click="sortType = 'preparation_time'; sortReverse = !sortReverse">
-                        Preparation Time
-                        <span ng-show="sortType == 'preparation_time' && !sortReverse" class="fa fa-caret-down"></span>
-                        <span ng-show="sortType == 'preparation_time' && sortReverse" class="fa fa-caret-up"></span>
-                    </a>
-                </td>
-                <td>
-                    <a href="#" ng-click="sortType = 'cooking_time'; sortReverse = !sortReverse">
-                        Cooking Time
-                        <span ng-show="sortType == 'cooking_time' && !sortReverse" class="fa fa-caret-down"></span>
-                        <span ng-show="sortType == 'cooking_time' && sortReverse" class="fa fa-caret-up"></span>
-                    </a>
-                </td>
-                <td>
-                        <a href="#" ng-click="sortType = 'instructions'; sortReverse = !sortReverse">
-                            Instructions
-                            <span ng-show="sortType == 'instructions' && !sortReverse" class="fa fa-caret-down"></span>
-                            <span ng-show="sortType == 'instructions' && sortReverse" class="fa fa-caret-up"></span>
-                        </a>
-                    </td>
-             
-                    <td>
+            <h2>READ</h2>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <td>
+                            <a href="#" ng-click="sortType = 'number'; sortReverse = !sortReverse">
+                                Number
+                                <span ng-show="sortType == 'number' && !sortReverse" class="fa fa-caret-down"></span>
+                                <span ng-show="sortType == 'number' && sortReverse" class="fa fa-caret-up"></span>
+                            </a>
+                        </td>
+                        <td>
+                            <a href="#" ng-click="sortType = 'korean_name'; sortReverse = !sortReverse">
+                                Korean Name
+                                <span ng-show="sortType == 'korean_name' && !sortReverse" class="fa fa-caret-down"></span>
+                                <span ng-show="sortType == 'korean_name' && sortReverse" class="fa fa-caret-up"></span>
+                            </a>
+                        </td>
+                        <td>
+                            <a href="#" ng-click="sortType = 'english_name'; sortReverse = !sortReverse">
+                                English Name
+                                <span ng-show="sortType == 'english_name' && !sortReverse" class="fa fa-caret-down"></span>
+                                <span ng-show="sortType == 'english_name' && sortReverse" class="fa fa-caret-up"></span>
+                            </a>
+                        </td>
+                        <td>
+                            <a href="#" ng-click="sortType = 'description'; sortReverse = !sortReverse">
+                                Description
+                                <span ng-show="sortType == 'description' && !sortReverse" class="fa fa-caret-down"></span>
+                                <span ng-show="sortType == 'description' && sortReverse" class="fa fa-caret-up"></span>
+                            </a>
+                        </td>
+                        <td>
+                            <a href="#" ng-click="sortType = 'ingredients'; sortReverse = !sortReverse">
+                                Ingredients
+                                <span ng-show="sortType == 'ingredients' && !sortReverse" class="fa fa-caret-down"></span>
+                                <span ng-show="sortType == 'ingredients' && sortReverse" class="fa fa-caret-up"></span>
+                            </a>
+                        </td>
+                        <td>
+                            <a href="#" ng-click="sortType = 'preparation_time'; sortReverse = !sortReverse">
+                                Preparation Time
+                                <span ng-show="sortType == 'preparation_time' && !sortReverse" class="fa fa-caret-down"></span>
+                                <span ng-show="sortType == 'preparation_time' && sortReverse" class="fa fa-caret-up"></span>
+                            </a>
+                        </td>
+                        <td>
+                            <a href="#" ng-click="sortType = 'cooking_time'; sortReverse = !sortReverse">
+                                Cooking Time
+                                <span ng-show="sortType == 'cooking_time' && !sortReverse" class="fa fa-caret-down"></span>
+                                <span ng-show="sortType == 'cooking_time' && sortReverse" class="fa fa-caret-up"></span>
+                            </a>
+                        </td>
+                        <td>
+                            <a href="#" ng-click="sortType = 'instructions'; sortReverse = !sortReverse">
+                                Instructions
+                                <span ng-show="sortType == 'instructions' && !sortReverse" class="fa fa-caret-down"></span>
+                                <span ng-show="sortType == 'instructions' && sortReverse" class="fa fa-caret-up"></span>
+                            </a>
+                        </td>
+
+                        <td>
                             <a href="#" ng-click="sortType = 'difficulty'; sortReverse = !sortReverse">
                                 Difficulty
                                 <span ng-show="sortType == 'difficulty' && !sortReverse" class="fa fa-caret-down"></span>
                                 <span ng-show="sortType == 'difficulty' && sortReverse" class="fa fa-caret-up"></span>
                             </a>
                         </td>
-                <th>UPDATE</th>
-                <th>DELETE</th>
-            </tr>
-        </thead>
-        <tbody ng-repeat="recipe in recipes | orderBy:sortType:sortReverse | filter:searchRecipe">
-            <tr ng-class="{'very_easy': recipe.cooking_time == '20', 'easy': recipe.cooking_time == '30', 'normal': recipe.cooking_time == '40', 'hard': recipe.cooking_time == '50', 'very_hard': recipe.cooking_time == '60'}">
-                <td>{{recipe.number}}</td>
-                <td>
-                    <input type="text" ng-model="recipe.korean_name">
-                </td>
-                <td>
-                        <input type="text" ng-model="recipe.english_name">
-                </td>
-                <td>
-                    <input type="text" ng-model="recipe.description">
-                </td>
-                <td>
-                            
-                    <input type="text" ng-model="recipe.ingredients">
-                </td>
-                <td>
-                    <input type="text" ng-model="recipe.preparation_time">
-                </td>
-                <td>
-                    <input type="text" ng-model="recipe.cooking_time">
-                </td>
-                <td>
-                        <input type="text" ng-model="recipe.instructions">
-                    </td>
-                <td>
-                    <span ng-if="recipe.cooking_time <= 20">
-                        <img src="images/1-star-rating.png" class="stars" alt="">
-                    </span>
-                    <span ng-if="recipe.cooking_time  > 20 && recipe.cooking_time <= 30">
-                        <img src="images/2-star-rating.png" class="stars" alt="">
-                    </span> 
-                 <span ng-if="recipe.cooking_time > 30 && recipe.cooking_time  <= 40">
-                        <img src="images/3-star-rating.png" class="stars" alt="">
-                    </span>
-                 <span ng-if="recipe.cooking_time > 40 && recipe.cooking_time  <= 50">
-                        <img src="images/4-star-rating.png" class="stars" alt="">
-                    </span>
-                 <span ng-if="recipe.cooking_time > 50 && recipe.cooking_time  <= 60">
-                        <img src="images/5-star-rating.png" class="stars" alt="">
-                    </span>
-                </td>
-                <td>
-                    <button class="btn btn-success" ng-click="update(recipe)">update</button>
-                </td>
-                <td>
-                    <button class="btn btn-danger" ng-click="delete(recipe)">delete</button>
-                </td>
-            </tr>
+                        <th>UPDATE</th>
+                        <th>DELETE</th>
+                    </tr>
+                </thead>
+                <tbody ng-repeat="recipe in recipes | orderBy:sortType:sortReverse | filter:searchRecipe">
+                    <tr ng-class="{'very_easy': recipe.cooking_time == '20', 'easy': recipe.cooking_time == '30', 'normal': recipe.cooking_time == '40', 'hard': recipe.cooking_time == '50', 'very_hard': recipe.cooking_time == '60'}">
+                        <td>{{recipe.number}}</td>
+                        <td>
+                            <input type="text" ng-model="recipe.korean_name">
+                        </td>
+                        <td>
+                            <input type="text" ng-model="recipe.english_name">
+                        </td>
+                        <td>
+                            <input type="text" ng-model="recipe.description">
+                        </td>
+                        <td>
 
-        </tbody>
+                            <input type="text" ng-model="recipe.ingredients">
+                        </td>
+                        <td>
+                            <input type="text" ng-model="recipe.preparation_time">
+                        </td>
+                        <td>
+                            <input type="text" ng-model="recipe.cooking_time">
+                        </td>
+                        <td>
+                            <input type="text" ng-model="recipe.instructions">
+                        </td>
+                        <td>
+                            <span ng-if="recipe.cooking_time <= 20">
+                                <img src="images/1-star-rating.png" class="stars" alt="">
+                            </span>
+                            <span ng-if="recipe.cooking_time  > 20 && recipe.cooking_time <= 30">
+                                <img src="images/2-star-rating.png" class="stars" alt="">
+                            </span>
+                            <span ng-if="recipe.cooking_time > 30 && recipe.cooking_time  <= 40">
+                                <img src="images/3-star-rating.png" class="stars" alt="">
+                            </span>
+                            <span ng-if="recipe.cooking_time > 40 && recipe.cooking_time  <= 50">
+                                <img src="images/4-star-rating.png" class="stars" alt="">
+                            </span>
+                            <span ng-if="recipe.cooking_time > 50 && recipe.cooking_time  <= 60">
+                                <img src="images/5-star-rating.png" class="stars" alt="">
+                            </span>
+                        </td>
+                        <td>
+                            <button class="btn btn-success" ng-click="update(recipe)">update</button>
+                        </td>
+                        <td>
+                            <button class="btn btn-danger" ng-click="delete(recipe)">delete</button>
+                        </td>
+                    </tr>
 
-    </table>
-</div>
-</div>
+                </tbody>
+
+            </table>
+        </div>
+    </div>
 
     <% include ../partials/footer.ejs %>
 

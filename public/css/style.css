@@ -3,6 +3,7 @@ body {
 background-color: lightgoldenrodyellow;}
 
 footer{
+    padding: 2em;
     position: relative;
     bottom:0;
     left:60%;
@@ -11,10 +12,14 @@ footer{
     height:100px;
 }
 
-#background {
+/* #background {
 background: url("../images/kimchi.jpg") no-repeat fixed center;
-}
+} */
 
 .stars{
     height: 2em;
+}
+
+button{
+    padding: 1em;
 }
