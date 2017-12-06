@@ -6,10 +6,25 @@
         <% include ../partials/nav.ejs %>
 </head>
 
-<body ng-app="recipes">
+<body ng-app="recipes" ng-controller="data">
     <div class="container">
         <h1>Project Four: Soojee's Delicious Recipes</h1>
     </div>
+    <form name="userForm" ng-submit="submitForm(userForm.$valid)" novalidate>
+            
+    <div>
+            <label>Recipe Dropdown List</label>
+            <select ng-model="searchRecipe" ng-options="x for x in english_names">
+            <option value="">Select Recipes</option>
+            </select>
+        </div>
+
+        <div>
+            <label>Search recipes</label>
+            <input type="text" class="form-control" placeholder="Search recipes" ng-model="searchRecipe">
+        </div>
+    </form>
+
 
     <h2>Recipes</h2>
     <div ng-controller="data">
