@@ -62,9 +62,8 @@
 
             <div>
                 <label>Recipe Dropdown List</label>
-                <select ng-model="input_english_name" ng-model-options="searchRecipe">
-                    <option value="">Select Recipes</option>
-                    <option ng-repeat="english_name in english_names">{{english_name}}</option>
+                <select ng-model="searchRecipe" ng-options="x for x in english_names">
+                <option value="">Select Recipes</option>
                 </select>
             </div>
 

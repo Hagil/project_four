@@ -15,11 +15,6 @@ function do_data($scope, $http) {
     }
     $scope.read();
 
-    // $scope.recipeFilter = function () {
-    //     console.log('filtering recipes');
-    //     $htt
-    // }
-
     $scope.create = function () {
         console.log('creating recipe');
         var data = {
