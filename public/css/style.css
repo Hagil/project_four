@@ -23,3 +23,23 @@ background: url("../images/kimchi.jpg") no-repeat fixed center;
 button{
     padding: 1em;
 }
+
+.very_easy{
+    background-color: lightcyan;
+}
+
+.easy{
+    background-color: lightblue;
+}
+
+.normal{
+    background-color: lightsalmon;
+}
+
+.hard{
+    background-color: lightpink;
+}
+
+.very_hard{
+    background-color: lightcoral;
+}

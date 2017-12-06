@@ -16,7 +16,7 @@
         <div id="background">
             <table class="table table-bordered">
                 <thead>
-                    <tr>
+                    <tr class="active">
                         <td>
                             <a href="#" ng-click="sortType = 'number'; sortReverse = !sortReverse">
                                 Number
@@ -89,7 +89,7 @@
                     </tr>
                 </thead>
                 <tbody ng-repeat="recipe in recipes | orderBy:sortType:sortReverse | filter:searchRecipe">
-                    <tr ng-class="{'very_easy': recipe.cooking_time == '20', 'easy': recipe.cooking_time == '30', 'normal': recipe.cooking_time == '40', 'hard': recipe.cooking_time == '50', 'very_hard': recipe.cooking_time == '60'}">
+                    <tr ng-class="{'very_easy': recipe.cooking_time <= 20, 'easy': recipe.cooking_time  > 20 && recipe.cooking_time <= 30, 'normal': recipe.cooking_time > 30 && recipe.cooking_time  <= 40, 'hard': recipe.cooking_time > 40 && recipe.cooking_time  <= 50, 'very_hard': recipe.cooking_time > 50 && recipe.cooking_time  <= 60}">
                         <td>{{recipe.number}}</td>
                         <td>
                             {{recipe.korean_name}}
