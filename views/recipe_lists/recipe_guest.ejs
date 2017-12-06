@@ -10,7 +10,10 @@
     <div class="container">
         <h1>Project Four: Soojee's Delicious Recipes</h1>
     </div>
-    <form name="userForm" ng-submit="submitForm(userForm.$valid)" novalidate>
+
+    <p>No. of recipes: {{recipes.length}}</p>
+    <h4>{{message}}</h4>
+    
             
     <div>
             <label>Recipe Dropdown List</label>
@@ -23,7 +26,6 @@
             <label>Search recipes</label>
             <input type="text" class="form-control" placeholder="Search recipes" ng-model="searchRecipe">
         </div>
-    </form>
 
 
     <h2>Recipes</h2>
