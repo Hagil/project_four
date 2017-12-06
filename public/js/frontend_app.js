@@ -2,7 +2,6 @@ console.log('loaded frontend_app');
 var frontend_app = angular.module('recipes', []);
 frontend_app.controller('data', do_data);
 
-
 function do_data($scope, $http) {
     console.log('inside dodata');
     $scope.message = "Welcome to Soojee's Recipes";
@@ -63,5 +62,4 @@ function do_data($scope, $http) {
         });
     }
     $scope.dropdown();
-
 }
