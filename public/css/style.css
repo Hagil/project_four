@@ -1,6 +1,8 @@
 body {
     padding-top: 100px;
-background-color: lightgoldenrodyellow;}
+background-color: #080808;
+}
+
 
 footer{
     padding: 2em;
@@ -10,6 +12,10 @@ footer{
     margin-left:-200px; /*negative half the width */
     width:400px;
     height:100px;
+}
+
+p{
+    position: relative;
 }
 
 background {
