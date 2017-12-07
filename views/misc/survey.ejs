@@ -1,11 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-        <% include ../partials/head.ejs %>
+    <% include ../partials/head.ejs %>
+        <script src="//unpkg.com/@uirouter/angularjs/release/angular-ui-router.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular-animate.js"></script>
+        <script src="js/survey.js"></script>
+        <link rel="stylesheet" href="css/survey.css">
         
+
 </head>
-<body>
-        <% include ../partials/footer.ejs %>
-        
+
+<body ng-app="formApp">
+    <h4>Survey</h4>
+    <div class="container">
+
+        <!-- views will be injected here -->
+        <div ui-view></div>
+
+    </div>
+    <% include ../partials/footer.ejs %>
+
 </body>
+
 </html>
