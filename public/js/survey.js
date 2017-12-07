@@ -23,13 +23,13 @@ angular.module('formApp', ['ngAnimate', 'ui.router'])
             templateUrl: 'misc/form-profile.ejs'
         })
 
-        // url will be /form/interests
+        // url will be /form/ifavourites
         .state('form.favourites', {
             url: '/favourites',
             templateUrl: 'misc/form-favourites.ejs'
         })
 
-        // url will be /form/payment
+        // url will be /form/thanks
         .state('form.thanks', {
             url: '/thanks',
             templateUrl: 'misc/form-thanks.ejs'
