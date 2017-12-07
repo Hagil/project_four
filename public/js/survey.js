@@ -1,5 +1,5 @@
-// create our angular app and inject ngAnimate and ui-router 
-// =============================================================================
+create our angular app and inject ngAnimate and ui-router 
+=============================================================================
 angular.module('formApp', ['ngAnimate', 'ui.router'])
 
 // configuring our routes 
@@ -32,7 +32,7 @@ angular.module('formApp', ['ngAnimate', 'ui.router'])
         // url will be /form/payment
         .state('form.thanks', {
             url: '/thanks',
-            templateUrl: 'partials/form-thanks.ejs'
+            templateUrl: 'misc/form-thanks.ejs'
         });
 
     // catch all route
