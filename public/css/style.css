@@ -12,9 +12,10 @@ footer{
     height:100px;
 }
 
-/* #background {
-background: url("../images/kimchi.jpg") no-repeat fixed center;
-} */
+background {
+background-image: url("../images/kimchi.jpg");
+
+}
 
 .stars{
     height: 2em;
