@@ -1,72 +1,70 @@
 body {
     padding-top: 100px;
-background-color: #080808;
+    background-color: #080808;
 }
 
-.navbar{
+.navbar {
     color: whitesmoke;
     background-color: #00cc66;
 }
 
-a{
+a {
     color: whitesmoke;
 }
 
-footer{
+footer {
     padding: 2em;
     position: relative;
-    bottom:0;
-    left:60%;
-    margin-left:-200px; /*negative half the width */
-    width:400px;
-    height:100px;
+    bottom: 0;
+    left: 60%;
+    margin-left: -200px;
+    /*negative half the width */
+    width: 400px;
+    height: 100px;
 }
 
-h1{
+
+h1 {
+    left: 50%;
     color: whitesmoke;
 }
 
-h4{
+h4 {
     color: whitesmoke;
 }
 
-label{
+label {
     color: whitesmoke;
-}
-p{
-    color: whitesmoke;
-    position: relative;
 }
 
 background {
-background-image: url("../images/kimchi.jpg");
-
+    background-image: url("../images/kimchi.jpg");
 }
 
-.stars{
+.stars {
     height: 2em;
 }
 
-button{
+button {
     padding: 1em;
 }
 
-.very_easy{
+.very_easy {
     background-color: lightcyan;
 }
 
-.easy{
+.easy {
     background-color: lightblue;
 }
 
-.normal{
+.normal {
     background-color: lightsalmon;
 }
 
-.hard{
+.hard {
     background-color: lightpink;
 }
 
-.very_hard{
+.very_hard {
     background-color: lightcoral;
 }
