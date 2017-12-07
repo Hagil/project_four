@@ -3,6 +3,14 @@ body {
 background-color: #080808;
 }
 
+.navbar{
+    color: whitesmoke;
+    background-color: #00cc66;
+}
+
+a{
+    color: whitesmoke;
+}
 
 footer{
     padding: 2em;
@@ -14,7 +22,19 @@ footer{
     height:100px;
 }
 
+h1{
+    color: whitesmoke;
+}
+
+h4{
+    color: whitesmoke;
+}
+
+label{
+    color: whitesmoke;
+}
 p{
+    color: whitesmoke;
     position: relative;
 }
 
