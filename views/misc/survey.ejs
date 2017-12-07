@@ -15,13 +15,150 @@
 
 </head>
 
-<body ng-app="formApp">
-    <h4>Survey</h4>
-    <div class="container">
+<body ng-app="my_app" ng-controller="my_slider">
 
-        <!-- views will be injected here -->
-        <% include form.ejs %>
-        
+    <div class="row">
+        <div class="col-sm-8 col-sm-offset-2">
+
+            <div id="form-container">
+
+                <div class="page-header text-center">
+                    <h2>Korean Food Survey</h2>
+
+                    <div id="status-buttons" class="text-center">
+                        <a ui-sref-active="active" ui-sref=".profile">
+                            <a ng-click="ngAnimate">
+                                <span>1</span> Profile</a>
+                            <a ui-sref-active="active" ui-sref=".favourites">
+                                <span>2</span> Favourites</a>
+                            <a ui-sref-active="active" ui-sref=".thanks">
+                                <span>3</span> Thanks</a>
+                    </div>
+                </div>
+                <form id="signup-form" ng-submit="processForm()">
+
+                    <div class="form-views" ng-if="panel_1">
+                        <label for="name">Name</label>
+                        <input type="text" class="form-control" name="name" ng-model="formData.name">
+                        <label for="email">Email</label>
+                        <input type="text" class="form-control" name="email" ng-model="formData.email">
+                        <div class="form-group row">
+                            <div class="col-xs-6 col-xs-offset-3">
+                                <button class="btn btn-block btn-info" ng-click="slide_panel_1()">Next Section </button>
+                                <span class="glyphicon glyphicon-circle-arrow-right"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-views" ng-if="panel_2">
+                        <label>Do you like Korean food?</label>
+                        <div class="radio">
+                            <label>
+                                <input type="radio" ng-model="formData.type" value="Like" checked> I like Korean cuisine!
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label>
+                                <input type="radio" ng-model="formData.type" value="Dislike"> I dislike Korean Cuisine!
+                            </label>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-xs-6 col-xs-offset-3">
+                                <button class="btn btn-block btn-info" ng-click="slide_panel_2()">Next Section</button>
+                                <span class="glyphicon glyphicon-circle-arrow-right"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-views" ng-if="panel_3">
+                        <label>What are your favourite recipes?</label>
+                        <div class="form-group">
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="favoriteRecipes" ng-model="formData.favoriteRecipes.tteokbokki"> Tteokbokki
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="favoriteRecipes" ng-model="formData.favoriteRecipes.kkaennip"> Kkaennip
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="favoriteRecipes" ng-model="formData.favoriteRecipes.japchae"> Japchae
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="favoriteRecipes" ng-model="formData.favoriteRecipes.samgaetang"> Samgaetang
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="favoriteRecipes" ng-model="formData.favoriteRecipes.oeeji"> Oeeji
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="favoriteRecipes" ng-model="formData.favoriteRecipes.odeng"> Odeng
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="favoriteRecipes" ng-model="formData.favoriteRecipes.kimbap"> Kimbap
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="favoriteRecipes" ng-model="formData.favoriteRecipes.jjigae"> Kimchi Jjigae
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="favoriteRecipes" ng-model="formData.favoriteRecipes.dakdoritang"> Dakdoritang
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="favoriteRecipes" ng-model="formData.favoriteRecipes.bulgogi"> Bulgogi
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="favoriteRecipes" ng-model="formData.favoriteRecipes.kimchi"> Kimchi
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="favoriteRecipes" ng-model="formData.favoriteRecipes.Bibimbap"> Bibimbap
+                            </label>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-xs-6 col-xs-offset-3">
+                                <button class="btn btn-block btn-info" ng-click="slide_panel_3()">Next Section</button>
+                                <span class="glyphicon glyphicon-circle-arrow-right"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-views" ng-if="panel_4">
+                        <label>What recipes would you like to see next?</label>
+                        <div class="form-group">
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="favoriteRecipes" ng-model="formData.favoriteRecipes.jjajangmyun"> Jjajangmyun (Black bean noodles)
+                            </label>
+                        </div>
+                        <div class="form-group">
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="favoriteRecipes" ng-model="formData.favoriteRecipes.budae"> Budae Jjigae (Army stew)
+                            </label>
+                        </div>
+                        <div class="form-group">
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="favoriteRecipes" ng-model="formData.favoriteRecipes.haemulpajeon"> Haemulpajeon (Seafood pancake)
+                            </label>
+                        </div>
+                        <div class="form-group">
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="favoriteRecipes" ng-model="formData.favoriteRecipes.kimchijeon"> Kimchijeon (Kimchi pancake)
+                            </label>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-xs-6 col-xs-offset-3">
+                                <button class="btn btn-block btn-info" ng-click="slide_panel_4()">Next Section</button>
+                                <span class="glyphicon glyphicon-circle-arrow-right"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-views" ng-if="panel_5">
+                        <div class="text-center">
+                            <span class="glyphicon glyphicon-heart"></span>
+                            <h3>Thanks For Your Time!</h3>
+                            <button ng-click="slide_panel_5()" type="submit" class="btn btn-danger">Submit</button>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
     </div>
     <% include ../partials/footer.ejs %>
 

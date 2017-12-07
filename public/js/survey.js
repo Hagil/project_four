@@ -1,55 +1,40 @@
-// create our angular app and inject ngAnimate and ui-router 
-// =============================================================================
-angular.module('formApp', ['ngAnimate', 'ui.router'])
+var FE_app = angular.module('my_app',['ngAnimate']);
+FE_app.controller('my_slider', do_my_slider);
 
-// configuring our routes 
-// =============================================================================
-.config(function($stateProvider, $urlRouterProvider) {
+function do_my_slider($scope) {
+    console.log('doing slider stuff');
 
-    $stateProvider
+    $scope.panel_1 = true;
+    $scope.panel_2 = false;
+    $scope.panel_3 = false;
+    $scope.panel_4 = false;
+    $scope.panel_5 = false;
 
-        // route to show our basic form (/form)
-        .state('form', {
-            url: '/form',
-            templateUrl: 'misc/form.ejs',
-            controller: 'formController'
-        })
+    $scope.slide_panel_1 = function () {
+        console.log('sliding one out of the way');
+        $scope.panel_1 = false;
+        $scope.panel_2 = true;
+    }
+    $scope.slide_panel_2 = function () {
+        console.log('sliding two out of the way');
+        $scope.panel_2 = false;
+        $scope.panel_3 = true;
+    }
+    $scope.slide_panel_3 = function () {
+        console.log('sliding three out of the way');
+        $scope.panel_3 = false;
+        $scope.panel_4 = true;
+    }
 
-        // nested states 
-        // each of these sections will have their own view
-        // url will be nested (/form/profile)
-        .state('form.profile', {
-            url: '/profile',
-            templateUrl: 'misc/form-profile.ejs'
-        })
+    $scope.slide_panel_4 = function () {
+        console.log('sliding four out of the way');
+        $scope.panel_4 = false;
+        $scope.panel_5 = true;
+    }
+    $scope.slide_panel_5 = function () {
+        console.log('showing five');
+        $scope.panel_5 = false;
+        // $scope.panel_6 = true;
+    }
+}
 
-        // url will be /form/ifavourites
-        .state('form.favourites', {
-            url: '/favourites',
-            templateUrl: 'misc/form-favourites.ejs'
-        })
-
-        // url will be /form/thanks
-        .state('form.thanks', {
-            url: '/thanks',
-            templateUrl: 'misc/form-thanks.ejs'
-        });
-
-    // catch all route
-    // send users to the form page 
-    $urlRouterProvider.otherwise('/form/profile');
-})
-
-// our controller for the form
-// =============================================================================
-.controller('formController', function($scope) {
-
-    // we will store all of our form data in this object
-    $scope.formData = {};
-
-    // function to process the form
-    $scope.processForm = function() {
-        alert('You are awesome!');
-    };
-
-});

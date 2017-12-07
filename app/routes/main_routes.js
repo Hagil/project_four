@@ -18,9 +18,6 @@ module.exports = function (app, passport) {
         var google_routes = require('./google_routes');
         google_routes(app, passport);
     
-        // var crud_routes = require('./crud_routes');
-        // crud_routes(app);
-    
     
         // route for logging out
         app.get('/logout', function (req, res) {

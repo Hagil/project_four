@@ -1,5 +1,5 @@
 body {
-    padding-top: 20px;
+    padding-top: 60px;
 }
 footer{
     padding: 2em;
@@ -68,40 +68,38 @@ p{
     background: #009871;
 }
 
-/* ANIMATION STYLINGS
-============================================================================= */
-#signup-form            { position:relative; min-height:300px; overflow:hidden; padding:30px; }
-#form-views             { width:auto; }
-
-/* basic styling for entering and leaving */
-/* left and right added to ensure full width */
-#form-views.ng-enter,
-#form-views.ng-leave      { position:absolute; left:30px; right:30px;
-    transition:0.5s all ease; ; 
+.form-views.ng-animate{
+    /* fix forms to top of cotnaining div */
+    position: absolute;
 }
-
 /* enter animation */
-#form-views.ng-enter            { 
-
-    animation:slideInRight 0.5s both ease; 
+.form-views.ng-enter {
+  animation: slideInRight 0.5s both ease;
 }
 
 /* leave animation */
-#form-views.ng-leave            { 
-  
-    animation:slideOutLeft 0.5s both ease;   
+
+.form-views.ng-leave {
+  animation: slideOutLeft 0.5s both ease;
 }
+
 
 /* ANIMATIONS
 ============================================================================= */
+
 /* slide out to the left */
 @keyframes slideOutLeft {
-    to      { transform: translateX(-200%); }
+  to {
+    transform: translateX(-1000%);
+  }
 }
-
 
 /* slide in from the right */
 @keyframes slideInRight {
-    from    { transform:translateX(200%); }
-    to      { transform: translateX(0); }
+  from {
+    transform: translateX(1000%);
+  }
+  to {
+    transform: translateX(0);
+  }
 }

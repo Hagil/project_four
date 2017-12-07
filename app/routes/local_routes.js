@@ -5,35 +5,35 @@ function local_routes(app, passport) {
     app.get('/mom_login', function (req, res) {
         console.log('logging_in');
         // render the page and pass in any flash data if it exists
-        res.render('mom_login.ejs', {
-            message: req.flash('loginMessage')
+        res.render('auth/mom_login.ejs', {
+            // message: req.flash('loginMessage')
         });
     });
 
     // process the login form
-    // app.post('/login', passport.authenticate('local-login', {
-    //     successRedirect: '/profile', // redirect to the secure profile section
-    //     failureRedirect: '/mom_login', // redirect back to the login page if there is an error
-    //     failureFlash: true // allow flash messages
-    // }));
+    app.post('/login', passport.authenticate('mom_login', {
+        successRedirect: '/recipe_god', // redirect to the secure profile section
+        failureRedirect: '/mom_login', // redirect back to the login page if there is an error
+        failureFlash: true // allow flash messages
+    }));
 app.post('/mom_login', function(req, res){
-    res.redirect ('/profile');
+    res.redirect ('/recipe_god');
 })
     // SIGNUP ============================== show the signup form
     app.get('/signup', function (req, res) {
 
         // render the page and pass in any flash data if it exists
-        res.render('signup.ejs', {
+        res.render('mom_signup.ejs', {
             message: req.flash('signupMessage')
         });
     });
 
     // process the signup form
-    // app.post('/signup', passport.authenticate('mom_signup', {
-    //     successRedirect: '/recipe_god',
-    //     failureRedirect: '/mom_signup',
-    //     failureFlash: true
-    // }));
+    app.post('/signup', passport.authenticate('mom_signup', {
+        successRedirect: '/recipe_god',
+        failureRedirect: '/mom_signup',
+        failureFlash: true
+    }));
     app.post ('/signup', function (req, res){
         res.redirect ('/mom_signup')
     })
