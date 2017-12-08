@@ -75,47 +75,47 @@ function do_recipeGuest(req, res) {
     res.render('recipe_lists/recipe_guest.ejs');
 }
 
-function do_bulgogi(req, res){
+function do_bulgogi(req, res) {
     console.log('getting bulgogi');
     res.render('recipes/bulgogi.ejs');
 }
-function do_dakdoritang(req, res){
+function do_dakdoritang(req, res) {
     console.log('getting dakdoritang');
     res.render('recipes/dakdoritang.ejs');
 }
-function do_japchae(req, res){
+function do_japchae(req, res) {
     console.log('getting japchae');
     res.render('recipes/japchae.ejs');
 }
-function do_kimbap(req, res){
+function do_kimbap(req, res) {
     console.log('getting kimbap');
     res.render('recipes/kimbap.ejs');
 }
-function do_kimchiJjigae(req, res){
+function do_kimchiJjigae(req, res) {
     console.log('getting kimchiJjigae');
     res.render('recipes/kimchi_jjigae.ejs');
 }
-function do_kimchi(req, res){
+function do_kimchi(req, res) {
     console.log('getting kimchi');
     res.render('recipes/kimchi.ejs');
 }
-function do_kkaennip(req, res){
+function do_kkaennip(req, res) {
     console.log('getting kkaennip');
     res.render('recipes/kkaennip.ejs');
 }
-function do_odeng(req, res){
+function do_odeng(req, res) {
     console.log('getting odeng');
     res.render('recipes/odeng.ejs');
 }
-function do_oeeji(req, res){
+function do_oeeji(req, res) {
     console.log('getting oeeji');
     res.render('recipes/oeeji.ejs');
 }
-function do_samgaetang(req, res){
+function do_samgaetang(req, res) {
     console.log('getting samgaetang');
     res.render('recipes/samgaetang.ejs');
 }
-function do_tteokbokki(req, res){
-    console.log('getting tteokbokki');
+function do_tteokbokki(req, res) {
+   console.log('getting tteokbokki');
     res.render('recipes/tteokbokki.ejs');
 }
