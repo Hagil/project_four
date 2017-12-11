@@ -34,7 +34,6 @@ function do_my_slider($scope) {
     $scope.slide_panel_5 = function () {
         console.log('showing five');
         $scope.panel_5 = false;
-        // $scope.panel_6 = true;
     }
 }
 

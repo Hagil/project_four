@@ -1,7 +1,10 @@
 body {
-    background: #70e1f5;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #70e1f5, #ffd194);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #70e1f5, #ffd194); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: #70e1f5;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #70e1f5, #ffd194);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #70e1f5, #ffd194);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     background-size: 120%;
     padding-top: 100px;
 
@@ -11,10 +14,6 @@ body {
     color: whitesmoke;
     background-color: #00cc66;
 }
-
-/* a {
-    color: whitesmoke;
-} */
 
 footer {
     padding: 2em;
@@ -27,23 +26,26 @@ footer {
     height: 100px;
 }
 
-
 h1 {
-    
     color: lightslategray;
 }
 
-h4 {
+h2 {
+    font-family: 'Satisfy', cursive;
     color: whitesmoke;
+    font-weight: 800;
 }
 
+p{
+    font-family: 'Satisfy', cursive;
+    color: darkgray;
+    font-weight: 500;
+    font-size: 25px;
+}
 label {
     color: whitesmoke;
 }
 
-background {
-    background-image: url("../images/kimchi.jpg");
-}
 
 .stars {
     height: 2em;
@@ -72,3 +74,40 @@ button {
 .very_hard {
     background-color: lightcoral;
 }
+
+.mom-img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 600px;
+    height: 533px;
+    border-radius: 25px;
+}
+
+.kimchi {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 600px;
+    height: 533px;
+    border-radius: 25px;
+}
+.kimchitxt {
+    color: white; 
+    font-family: 'Satisfy', cursive;
+    letter-spacing: -1px;  
+    background: rgb(0, 0, 0); 
+    background: rgba(0, 0, 0, 0.7);
+    padding: 10px; 
+    position: absolute;
+    top: 100px;
+    right: 50px;
+    word-wrap: break-word;
+}
+.about{
+    display: flex;
+    margin: auto;
+}
+

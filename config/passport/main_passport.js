@@ -17,7 +17,6 @@ module.exports = function (passport) {
     var instagram_passport = require('./instagram_passport')
     instagram_passport(User, passport, configAuth);
 
-
     // =========================================================================
     // passport session setup ==================================================
     // =========================================================================

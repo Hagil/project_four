@@ -36,7 +36,6 @@ function do_data($scope, $http) {
                 $scope.read();
             });
     }
-
     $scope.update = function (recipe) {
         console.log('updating recipe');
   

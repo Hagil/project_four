@@ -8,25 +8,24 @@
 
 <body ng-app="recipes" ng-controller="data">
     <div class="container">
-        <h1>Project Four: Soojee's Delicious Recipes</h1>
     </div>
 
-    <p>No. of recipes: {{recipes.length}}</p>
-    <h4>{{message}}</h4>
-
-
+    <h2>{{message}}</h2>
+    
+    
     <div>
         <label>Recipe Dropdown List</label>
         <select ng-model="searchRecipe" ng-options="x for x in english_names">
             <option value="">Select Recipes</option>
         </select>
     </div>
-
+    
     <div>
         <label>Search recipes</label>
-        <input type="text" class="form-control" placeholder="Search recipes" ng-model="searchRecipe">
+        <input type="text" placeholder="Search recipes" ng-model="searchRecipe">
     </div>
-
+    
+    <p>No. of recipes: {{recipes.length}}</p>
 
     <h4>Recipes</h4>
     <div ng-controller="data">

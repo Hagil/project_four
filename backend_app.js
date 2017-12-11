@@ -20,10 +20,6 @@ backend_app.use(bodyParser.json());
 backend_app.use(ejs_routes);
 backend_app.use(api_routes);
 
-// backend_app.get('/', function (req, res) {
-//     res.render('index.ejs'); // load the index.ejs file
-// });
-
 // required for passport
 backend_app.use(session({
     secret: 'ballislife'

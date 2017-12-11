@@ -10,6 +10,11 @@ footer{
     width:400px;
     height:100px;
 }
+h2 {
+    font-family: 'Satisfy', cursive;    
+    color: whitesmoke;
+    font-weight: 500;
+}
 p{
     position: relative;
 }
